@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block title %} Extrusion Data {% endblock %}
+
+{% block body %}
+                <section>
+                    <div class="section-body">
+                        <!-- BEGIN DATATABLE 2 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>Extrusion Data</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <a href="{% url 'newextrusion' %}" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-add"></i> </a>
+                                            <a onclick="location.reload();" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-refresh"></i> </a>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+
+                                            <div class="col-lg-12">
+                                                <div class="table-responsive">
+                                                    <table id="datatable2" class="table order-column hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Extrusion ID</th>
+                                                                <th>Extrusion Date</th>
+                                                                <th>Press</th>
+                                                                <th>Shift</th>
+                                                                <th>Net Lbs Extruded</th>
+                                                                <th>Gross Lbs Extruded</th>
+                                                                <th>Attainment Percent</th>
+                                                                <th>Attempted Die Runs</th>
+                                                                <th>Successful Die Runs</th>
+                                                                <th>Run Successful Rate</th>
+                                                                <th width="70px">Buttons</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for extrusion in extrusion %}
+                                                                <tr class="gradeX">
+                                                                    <td>{{ extrusion.id }}</td>
+                                                                    <td>{{ extrusion.date }}</td>
+                                                                    <td>{{ extrusion.press_code }}</td>
+                                                                    <td>{{ extrusion.shift_code }}</td>
+                                                                    <td>{{ extrusion.net_lbs_extruded }}</td>
+                                                                    <td>{{ extrusion.gross_lbs_extruded }}</td>
+                                                                    <td>{{ extrusion.percent_attainment }}</td>
+                                                                    <td>{{ extrusion.attempted_die_runs }}</td>
+                                                                    <td>{{ extrusion.successful_die_runs }}</td>
+                                                                    <td>{{ extrusion.run_attainment_percent }}</td>
+                                                                    <td>
+                                                                         {% if response.admin_user or response.position == 'manager' %}
+                                                                        <a href="{% url 'editextrusion' extrusion.id %}" class="btn ink-reaction btn-floating-action btn-warning"><i class="md md-edit"></i> </a>
+                                                                          {% endif %}
+                                                                       {% if response.admin_user %}
+                                                                        <a href="{% url 'deleteextrusion' extrusion.id %}" class="btn ink-reaction btn-floating-action btn-danger" onclick="return confirm('Are you sure you want to delete this?')"><i class="md md-delete"></i> </a>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                            </div>
+                                    </div>   
+                                </div>       
+                            </div><!--end .col -->
+                        </div><!--end .row -->
+                        <!-- END DATATABLE 2 -->
+
+                    </div><!--end .section-body -->
+                </section>
+
+{% endblock %}

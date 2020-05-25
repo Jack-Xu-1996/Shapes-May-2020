@@ -1,0 +1,1793 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Enter Billet {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Enter Billet Data</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+										<form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+											<div class="row">
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															{{ billet.Date | add_class:'form-control' | attr:'type:date'}}
+															<label for="textarea2">Entry Date (xxxx-xx-xx)</label>
+														</div>
+													</div>
+												</div>
+												<div class="table-responsive">
+		                                            <table id="datatable2" class="table order-column hover">
+		                                                <thead>
+		                                                    <tr>
+		                                                        <th>Diameter</th>
+		                                                        <th>Alloy</th>
+		                                                        <th>Length</th>
+		                                                        <th>Racks</th>
+		                                                        <th>Loose Billets</th>
+		                                                        <th>Billets per Rack</th>
+		                                                        <th>Weight per Inch</th>
+		                                                        
+		                                                    </tr>
+		                                                </thead>
+		                                                <tbody>
+		                                                        <tr class="gradeX">
+		                                                            <td>7</td>
+		                                                            <td>S1</td>
+		                                                            <td></td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ billet.S1_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>     	
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ billet.S1_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div> 
+		                                                            </td>
+		                                                            <td>28</td>
+		                                                            <td>3.83</td>
+		                                                            
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>S1</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_32_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_32_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>S1</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_30_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_30_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>S1</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_28_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_28_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>S1</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_26_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_26_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>S1</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_24_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_24_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>S1</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_22_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.S1_22_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_32_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_32_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>31</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_31_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_31_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_30_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_30_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>29</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_29_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_29_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_28_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_28_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>27</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_27_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_27_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_26_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_26_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_24_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_24_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_22_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_22_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>20</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_20_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_20_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>L</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_24_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_24_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>L</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_28_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_28_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>L</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_30_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_30_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>7</td>
+		                                                        	<td>L</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_32_7_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_32_7_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>28</td>
+		                                                        	<td>3.83</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_22_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_22_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_24_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_24_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_26_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_26_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_28_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_28_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_30_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_30_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_32_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_32_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_34_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_34_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>L</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_30_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_30_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>L</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_34_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_34_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>L</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_32_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_32_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>AP</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_22_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_22_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>AP</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_26_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_26_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>AP</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_30_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_30_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>AP</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_32_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.AP_32_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_34_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_34_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_32_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_32_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_30_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_30_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_28_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_28_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_26_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_26_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_24_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_24_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>11</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_22_11_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_22_11_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>11</td>
+		                                                        	<td>9.22</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>L</td>
+		                                                        	<td>21</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_21_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_21_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>A</td>
+		                                                        	<td>20</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_20_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_20_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>A</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_22_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_22_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>A</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_24_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_24_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>A</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_30_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.A_30_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>20</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_20_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_20_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_22_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_22_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_24_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_24_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_26_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_26_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_28_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_28_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_30_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_30_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_32_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_32_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_34_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_34_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>36</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_36_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_36_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>14</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>38</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_38_14_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_38_14_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>9</td>
+		                                                        	<td>15.1</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>20</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_20_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_20_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_22_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_22_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_24_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_24_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>25</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_25_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_25_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_26_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_26_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>27</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_27_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_27_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_28_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_28_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>29</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_29_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_29_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_30_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_30_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>31</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_31_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_31_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_32_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_32_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>SA</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_34_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.SA_34_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>L</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_32_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_32_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>L</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_34_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_34_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>L</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_30_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_30_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>L</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_22_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_22_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>L</td>
+		                                                        	<td>20</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_24_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_24_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>L</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_28_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.L_28_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>20</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_20_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_20_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>22</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_22_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_22_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>24</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_24_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_24_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>26</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_26_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_26_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>28</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_28_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_28_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_30_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_30_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>32</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_32_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_32_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_34_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_34_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>P1</td>
+		                                                        	<td>36</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_36_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.P1_36_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>BB</td>
+		                                                        	<td>30</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.BB_30_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.BB_30_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                        	<td>9</td>
+		                                                        	<td>BB</td>
+		                                                        	<td>34</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.BB_34_9_rack| add_class:'form-control'}}
+																			<label for="regular2">Racks</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>
+		                                                        		<div class="form-group floating-label">
+																			{{ billet.BB_34_9_loose| add_class:'form-control'}}
+																			<label for="regular2">Loose</label>
+																		</div>
+		                                                        	</td>
+		                                                        	<td>20</td>
+		                                                        	<td>6.2</td>
+		                                                        	
+		                                                        </tr>
+		                                                </tbody>
+		                                            </table>
+		                                        </div><!--end .table-responsive -->												
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="card-actionbar-row">
+															<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+						
+					</div><!--end .section-body -->
+				</section>
+
+{% endblock %}

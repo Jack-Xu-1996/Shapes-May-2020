@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %} Customer Debt {% endblock %}
+
+{% block body %}
+                <section>
+                    <div class="section-body">
+                        <!-- BEGIN DATATABLE 2 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>Customer Debt</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        
+
+                                        <div class="table-responsive">
+                                            <table id="datatable2" class="table order-column hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Customer Number</th>
+                                                        <th>Customer Name</th>
+                                                        <th>How Much They Owe</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% load humanize %}
+                                                    {% for debt in debt %}
+                                                        <tr class="gradeX">
+                                                            <td>{{ debt.customer_id__customer_number }}</td>
+                                                            <td>{{ debt.customer_id__customer_name }}</td>
+                                                            <td>$ {{ debt.total | floatformat:2 | intcomma }}</td>
+                                                            
+                                                        </tr>
+                                                    {% endfor %}
+
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div><!--end .table-responsive -->
+                                    </div>   
+                                </div>       
+                            </div><!--end .col -->
+                        </div><!--end .row -->
+                        <!-- END DATATABLE 2 -->
+
+                    </div><!--end .section-body -->
+                </section>
+{% endblock %}

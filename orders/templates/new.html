@@ -1,0 +1,491 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Add Orders {% endblock %}
+
+{% block body %}
+
+                <section>
+                    <div class="section-body">
+                        <div class="row">
+
+                            <!-- BEGIN  - FORM -->
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>Add Sales Order</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+                                            <div class="row">
+
+
+                                                <div class="card">
+                                                    <div class="card-head style-primary">
+                                                        <header>Main Details</header>
+                                                        <div class="tools">
+                                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                    {{ form.order_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Sales Order Number</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <div class="form-group">
+                                                                    {{ form.line | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Line Number</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                    {{ form.workorder_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Work Order Number</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                {{ form.customer_id | add_class:'form-control select2-list' | attr:'id:customer_id'}}
+                                                                <label for="textarea2">Customer Name</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                               <a onclick="openWin()" class="btn btn-info active">Check Customer Debt</a> 
+                                                            </div>
+                                                            <script>
+                                                                var myWindow;
+
+                                                                function openWin() {
+                                                                  myWindow = window.open("{% url 'indexdebt'%}");
+                                                                }
+                                                            </script>
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    {{ form.ordered_date | add_class:'form-control' | attr:'type:date'}}
+                                                                    <label for="textarea2">Order Date (xxxx-xx-xx)</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    {{ form.shipping_date | add_class:'form-control' | attr:'type:date'}}
+                                                                    <label for="textarea2">Complete Date (xxxx-xx-xx)</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    {{ form.required_date | add_class:'form-control' | attr:'type:date'}}
+                                                                    <label for="textarea2">Required Date (xxxx-xx-xx)</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <div class="row">
+                                                            <div class="col-md-10">
+                                                                    <label class="radio-inline radio-styled col-sm-2">
+                                                                        <b>Order Status :</b>
+                                                                    </label>
+                                                                    <div class="col-md-10">
+
+                                                                        {% for radio in form.order_status %}
+                                                                            <label class="radio-inline radio-styled">
+                                                                                {{ radio }}
+                                                                            </label>
+                                                                        {% endfor %}
+
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="form-group">
+                                                                    {{ form.order_value | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Order Value</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    {{ form.total_quantity | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Total Quantity</label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    {{ form.total_weight | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Total Weight</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    {{ form.backorder_quantity | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Work In Process Quantity</label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    {{ form.backorder_weight | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Work In Process Weight</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    {{ form.shipping_quantity | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Shipped Quantity</label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    {{ form.shipping_weight | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Shipped Weight</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                {{ form.billAddress_id | add_class:'form-control select2-list' | attr:'id:billAddress_id'}}
+                                                                <label for="textarea2">Bill Address</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.die_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Die Number</label>
+                                                                </div>                                                 
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                {{ form.shipAddress_id | add_class:'form-control select2-list' | attr:'id:shipAddress_id'}}
+                                                                <label for="textarea2">Ship Address</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.part_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Part Number</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.order_type | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Order Type</label>
+                                                                </div>
+                                                                
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.price_details | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Price Details</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.freight| add_class:'form-control' | attr:'rows:2' }}
+                                                                    <label for="textarea2">Freight Option</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.kit_details| add_class:'form-control' | attr:'rows:2' }}
+                                                                    <label for="textarea2">Kit Details</label>
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-head style-primary">
+                                                        <header>Sales Details</header>
+                                                        <div class="tools">
+                                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.warehouse | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Warehouse</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.sales_rep | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Sales Rep</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.COS_project | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">COS/Project</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.sales_account | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Sales Account</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.order_received| add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Order Received</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.surcharge | add_class:'form-control'}}
+                                                                    <label for="select2">Surcharge</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.price_method | add_class:'form-control'}}
+                                                                    <label for="select2">Price Method</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.staus_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Status Number (How many completed)</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.contact_name | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Contact Name</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.phone_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Phone Number</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.ship_cond | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Ship Condition</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.credit_control | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">Credit Control</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.A_R_credit | add_class:'form-control'}}
+                                                                    <label for="select2">A/R Credit</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.quote | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Quote</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.ASN_contact | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">ASN Contact</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.ASN_title | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">ASN Title</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.fax_ASN | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="select2">FAX ASN</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.ASN_fax_num | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="regular2">ASN FAX #</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.email_ASN | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="select2">Email ASN</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.email_addr | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Email Address</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.contract | add_class:'form-control' }}
+                                                                    <label for="regular2">Contract Number</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card">
+                                                    <div class="card-head style-primary">
+                                                        <header>Extrusion Details</header>
+                                                        <div class="tools">
+                                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                    
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-head style-primary">
+                                                        <header>Fabrication Details</header>
+                                                        <div class="tools">
+                                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                    
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-head style-primary">
+                                                        <header>Anodizing Details</header>
+                                                        <div class="tools">
+                                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_date | add_class:'form-control' | attr:'type:date'}}
+                                                                    <label for="textarea2">Anodizing Date (xxxx-xx-xx)</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_racked_by | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Racked By</label>
+                                                                </div>                                                                    
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_shift | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Shift</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_bar_number | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Bar Number</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_load | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Load</label>
+                                                                </div>
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_code | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Anodizing Code</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_quantity | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Total Quantity / Pieces</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_outside_perimeter | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Outside Perimeter</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_length | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Length / Feet</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.anodizing_square_feet | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Total Area / Square Feet</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-head style-primary">
+                                                        <header>Shipping Details</header>
+                                                        <div class="tools">
+                                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                    <div class="form-group floating-label">
+                                                                        {{ form.ship_via | add_class:'form-control' | attr:'rows:2'}}
+                                                                        <label for="textarea2">Ship Via</label>
+                                                                    </div>
+                                                                    <div class="form-group floating-label">
+                                                                        {{ form.F_O_B | add_class:'form-control' | attr:'rows:2' }}
+                                                                        <label for="textarea2">F.O.B</label>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.attention | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Attention</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="form-group floating-label">
+                                                                    {{ form.ship_instructions | add_class:'form-control' | attr:'rows:2'}}
+                                                                    <label for="textarea2">Shipping Instruction</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <hr>
+                                                <div class="row">
+                                                            <div class="col-sm-3">
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                            
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="card-actionbar-row">
+                                                                    <input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .col -->
+                            <!-- END FORM - TIME ON SITE -->
+
+                        </div><!--end .row -->
+                        
+                    </div><!--end .section-body -->
+                </section>
+
+{% endblock %}

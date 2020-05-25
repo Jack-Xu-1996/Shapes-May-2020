@@ -1,0 +1,232 @@
+{% extends 'layout.html' %}
+
+{% block title %} All Orders {% endblock %}
+
+{% block body %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Filter Form</title>
+
+    <style type="text/css">
+      .highcharts-figure, .highcharts-data-table table {
+          min-width: 360px; 
+          max-width: 800px;
+          margin: 1em auto;
+      }
+
+      .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+      .highcharts-data-table caption {
+          padding: 1em 0;
+          font-size: 1.2em;
+          color: #555;
+      }
+      .highcharts-data-table th {
+        font-weight: 600;
+          padding: 0.5em;
+      }
+      .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+          padding: 0.5em;
+      }
+      .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+          background: #f8f8f8;
+      }
+      .highcharts-data-table tr:hover {
+          background: #f1f7ff;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <main role="main" class="container">
+
+      <h3>Foundry Metal Cost Visualization</h3>
+      <form method="GET" action=".">
+       
+        <div class="form-row">
+          <div class="form-group col-md-2 col-lg-2">
+            <label for="publishDateMin">Transaction Date Begin</label>
+            <input type="date" class="form-control" id="publishDateMin" name="date_min">
+          </div>
+          <div class="form-group col-md-2 col-lg-2">
+            <label for="publishDateMax">Transaction Date End</label>
+            <input type="date" class="form-control" id="publishDateMax" name="date_max">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="category">GL Account Number</label>
+            <select id="category" class="form-control" name="category">
+              <option selected>Choose...</option>
+              {% for cat in categories %}
+              <option value="{{ cat }}">{{ cat }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <hr />
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/series-label.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+      <figure class="highcharts-figure">
+          <div id="container"></div>
+          <p class="highcharts-description">
+              Basic line chart showing trends in a dataset.
+          </p>
+      </figure>
+
+
+
+      <script type="text/javascript">
+       
+        Highcharts.chart('container', {
+
+          title: {
+              text: 'Foundry Cost Detail Analysis'
+          },
+
+          subtitle: {
+              text: 'Source: General Detail Report'
+          },
+
+          credits: {
+              enabled: false
+          },
+
+          yAxis: {
+              title: {
+                  text: 'Metal Cost Amount'
+              }
+          },
+
+          xAxis: {
+            //type: 'datetime',
+            categories: [{% for journal in queryset %}
+                          "{{ journal.Transdate|date:"Y-m-d" }}", {% endfor %}]
+        },
+
+          
+
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle'
+          },
+
+          plotOptions: {
+             series: {
+                 turboThreshold:10000
+                  
+              }
+          },
+         
+
+          series: [{
+              name: 'cost',
+         
+              data: 
+                  [{% for journal in queryset %}
+                    ["{{ journal.Transdate|date:"Y-m-d" }}", {{ journal.Transamnt }}]   
+                    {% if not forloop.last %}, 
+                    {% endif %}{% endfor %}],
+                  
+
+                
+          }],
+       
+
+            responsive: {
+              rules: [{
+                  condition: {
+                      maxWidth: 500
+                  },
+                  chartOptions: {
+                      legend: {
+                          layout: 'horizontal',
+                          align: 'center',
+                          verticalAlign: 'bottom'
+                      }
+                  }
+              }]
+          }
+
+      });
+  
+      </script>
+
+      <section>
+        <div class="section-body">
+          <!-- BEGIN DATATABLE 2 -->
+          <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-head style-primary">
+                      <header>Details</header>
+                      <div class="tools">
+                        <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                        <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                          <table id="datatable2" class="table order-column hover">
+                            <thead>
+                              <tr>
+                                <th>Order ID</th>
+                                <th>Transaction Date</th>
+                                <th>GL Number</th>
+                                <th>Expense Amount</th>
+                                <th width="150px">Buttons</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% load humanize %}
+                            {% for journal in queryset %}
+                              <tr class="gradeX">
+                                <td>{{ journal.id }}</td>
+                                <td>{{ journal.Transdate }}</td>
+                                <td>{{ journal.Accountno }}</td>
+                                <td> $ {{ journal.Transamnt | floatformat:2 | intcomma }}</td>
+                                <td>
+                                  <a href="{% url 'checkgeneral' journal.id %}" class="btn ink-reaction btn-floating-action btn-info"><i class="md md-search"></i> </a></td>
+                              </tr>
+                            {% endfor %}
+                            </tbody>
+                          </table>
+                      </div><!--end .table-responsive -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </section>
+      {% endblock %}
+      </div>
+
+    </main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

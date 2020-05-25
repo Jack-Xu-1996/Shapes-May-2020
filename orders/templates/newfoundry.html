@@ -1,0 +1,218 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Add Cast {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Add Cast Data</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+
+										<form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+											<div class="row">
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.furnace_number | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Furnace Number</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.heat_number | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Heat Number</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.length | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Length</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.diameter | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Diameter</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.alloy | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Alloy</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.cast_qty | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cast Quantity</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.total_weight | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Total Weight</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.degass | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Degass</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.date | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cast Date</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.cast_shift | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cast Shift</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ foundry.cast_speed | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cast Speed</label>
+														</div>
+													</div>
+												</div>
+												<hr>
+
+												<div class="row">
+													<div class="col-sm-1">
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Mg | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Mg</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Mg_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Si | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Si</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Si_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Fe | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Fe</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Fe_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Cu | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cu</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Cu_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Cr | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cr</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Cr_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Mn | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Mn</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Mn_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Zn | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Zn</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Zn_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Ti | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Ti</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Ti_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+													<div class="col-sm-1">
+														<div class="form-group floating-label">
+															{{ foundry.Bo | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Bo</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ foundry.Bo_HL | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">High/Low</label>
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+															<div class="col-sm-12">
+																<div class="card-actionbar-row">
+																	<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+																</div>
+															</div>
+												</div>
+											</div>
+										</form>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+						
+					</div><!--end .section-body -->
+				</section>
+
+{% endblock %}

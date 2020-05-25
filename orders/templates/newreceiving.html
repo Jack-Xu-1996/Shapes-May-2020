@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Edit Receiving {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Edit Receiving</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<form class="form" role="form" action="" method="post"> {% csrf_token %}
+											
+													
+													<div class="row">
+													<div class="col-md-12">
+															<hr>
+															<label class="radio-inline radio-styled col-sm-2">
+																<b>Payment Status :</b>
+															</label>
+															<div class="col-md-10">
+
+		                                                        {% for radio in receiving.payment_status %}
+		                                                            <label class="radio-inline radio-styled">
+		                                                                {{ radio }}
+		                                                            </label>
+		                                                        {% endfor %}
+
+															</div>
+													</div>
+											
+													<!--end .table-responsive -->				
+																		
+											
+													<div class="col-md-12">
+															<hr>
+															<label class="radio-inline radio-styled col-sm-2">
+																<b>Amount Received :</b>
+															</label>
+															<div class="col-md-10">
+
+		                                                      {{receiving.amount_received | add_class:'form-control'}}
+
+															</div>
+													</div>
+												</div>
+												<hr>
+
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="card-actionbar-row">
+															<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+														</div>
+													</div>
+												</div>
+											</div>
+											</form>
+										</div>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+					</div><!--end .section-body -->
+				</section>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						if ($("#id_payment_status_1").prop("checked")) {
+							var value=$("#id_amount_received").val()
+							$("#id_amount_received").attr('data-id',value)
+							if(value == 0){
+								$("#id_amount_received").val("")
+								$("#id_amount_received").attr('required', true);
+							}
+
+						}
+						else{
+							$("#id_payment_status_0").prop("checked",true)
+							$("#id_amount_received").val("0")
+						}
+						$("#id_payment_status_1").click(function(){
+							var value = $("#id_amount_received").attr('data-id')
+							if(value){
+								$("#id_amount_received").val(value)
+							}
+							else{
+								$("#id_amount_received").val("")
+								$("#id_amount_received").attr('required', true);
+							}
+						})
+						$("#id_payment_status_0").click(function(){
+
+							$("#id_amount_received").val("0")
+							$("#id_amount_received").attr('required', false);
+						})
+					})
+				</script>
+
+{% endblock %}

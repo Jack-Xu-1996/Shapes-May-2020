@@ -1,0 +1,2008 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Edit Log {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Edit Log Data</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+
+										<form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+											<div class="row">
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															{{ log.Date | add_class:'form-control' | attr:'type:date'}}
+															<label for="textarea2">Entry Date (xxxx-xx-xx)</label>
+														</div>
+													</div>
+												</div>
+												<div class="table-responsive">
+		                                            <table id="datatable2" class="table order-column hover">
+		                                                <thead>
+		                                                    <tr>
+		                                                        <th>Log Type</th>
+		                                                        <th>Diameter</th>
+		                                                        <th>Alloy</th>
+		                                                        <th>Length 1</th>
+		                                                        <th>Quantity 1</th>
+		                                                        <th>Length 2</th>
+		                                                        <th>Quantity 2</th>
+		                                                        <th>Length 3</th>
+		                                                        <th>Quantity 3</th>
+		                                                        <th>Total Weight</th>
+		                                                    </tr>
+		                                                </thead>
+		                                                <tbody>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>7</td>
+		                                                            <td>S1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>7</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>7</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>7</td>
+		                                                            <td>BB</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>7</td>
+		                                                            <td>1350</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_1350_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_1350_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_1350_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_1350_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_1350_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_1350_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>7</td>
+		                                                            <td>other</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_other_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_other_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_other_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_other_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_other_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_other_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>16</td>
+		                                                            <td>BB</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_BB_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>16</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_SA_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity/label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>16</td>
+		                                                            <td>S1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_S1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>16</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_P1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_P1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_P1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_P1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_P1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_P1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>16</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_L_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Cropped Log</td>
+		                                                            <td>16</td>
+		                                                            <td>M</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_M_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_M_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_M_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_M_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_M_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Cropped_M_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>7</td>
+		                                                            <td>S1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>7</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>7</td>
+		                                                            <td>6005A</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_6005A_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_6005A_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_6005A_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_6005A_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_6005A_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_6005A_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>9</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_9_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_9_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_9_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_9_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_9_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_9_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>9</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_9_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_9_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_9_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_9_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_9_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_9_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>9</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_9_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_9_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_9_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_9_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_9_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_9_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>AP</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_AP_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_AP_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_AP_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_AP_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_AP_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_AP_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>M1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_L_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>M1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_M1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>BB</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_BB_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_BB_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_BB_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_BB_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_BB_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_BB_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_SA_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>S1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_S1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Unhomogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Unhomo_P1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>7</td>
+		                                                            <td>S1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>7</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>7</td>
+		                                                            <td>6005A</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_6005A_7_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_6005A_7_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_6005A_7_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_6005A_7_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_6005A_7_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_6005A_7_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>9</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_9_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_9_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_9_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_9_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_9_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_9_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>9</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_9_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_9_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_9_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_9_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_9_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_9_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>9</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_9_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_9_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_9_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_9_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_9_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_9_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>AP</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_AP_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_AP_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_AP_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_AP_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_AP_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_AP_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>M1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>11</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_11_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_11_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_11_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_11_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_11_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_11_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>L</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_L_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>M1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_M1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>BB</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_BB_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_BB_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_BB_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_BB_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_BB_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_BB_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>SA</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_SA_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>S1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_S1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                        <tr class="gradeX">
+		                                                            <td>Homogenized</td>
+		                                                            <td>16</td>
+		                                                            <td>P1</td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_16_len1| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_16_num1| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_16_len2| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_16_num2| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_16_len3| add_class:'form-control'}}
+																			<label for="regular2">Length</label>
+																		</div>
+		                                                            </td>
+		                                                            <td>
+		                                                            	<div class="form-group floating-label">
+																			{{ log.Homo_P1_16_num3| add_class:'form-control'}}
+																			<label for="regular2">Quantity</label>
+																		</div>
+		                                                            </td>
+		                                                            <td></td>
+		                                                        </tr>
+		                                                </tbody>
+		                                            </table>
+		                                        </div><!--end .table-responsive -->												
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="card-actionbar-row">
+															<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+						
+					</div><!--end .section-body -->
+				</section>
+
+{% endblock %}

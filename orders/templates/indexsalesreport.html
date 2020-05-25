@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+
+{% block title %} Sales Report {% endblock %}
+
+{% block body %}
+                <section>
+                    <div class="section-body">
+                        <!-- BEGIN DATATABLE 2 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>Analyze Sales Report</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <a href="{% url 'destroysalesreport' %}" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-delete"></i> </a>
+                                            <a onclick="openWin()" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-file-upload"></i> </a>
+                                            <a onclick="location.reload();" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-refresh"></i> </a>
+                                            <a href="{% url 'saleschart' %}" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-insert-chart"></i> </a>
+                                        </div>
+                                        <br>
+                                        <script>
+                                            var myWindow;
+
+                                            function openWin() {
+                                              myWindow = window.open("{% url 'uploadsalesreport'%}", "", "width=400, height=180");
+                                            }
+                                        </script>
+
+                                        <div class="table-responsive">
+                                            <table id="datatable2" class="table order-column hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Order ID</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Die Number</th>
+                                                        <th>Shipping Date</th>
+                                                        <th>Invoice Date</th>
+                                                        <th>Calculated Price</th>
+                                                        <th>Extrusion Revenue</th>
+                                                        <th>Fabrication Revenue</th>
+                                                        <th>Paint Revenue</th>
+                                                        <th>Anodizing Revenue</th>
+                                                        <th>Press</th>
+                                                        <th>Ship To State</th>
+                                                        <th>RSM Name</th>
+                                                        <th width="150px">Buttons</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for sales in sales %}
+                                                        <tr class="gradeX">
+                                                            <td>{{ sales.id }}</td>
+                                                            <td>{{ sales.Companyname }}</td>
+                                                            <td>{{ sales.Die_Number }}</td>
+                                                            <td>{{ sales.Dateshipped }}</td>
+                                                            <td>{{ sales.Invoicedate }}</td>
+                                                            <td>{{ sales.Calc_Price }}</td>
+                                                            <td>{{ sales.Extrusion_Revenue }}</td>
+                                                            <td>{{ sales.Fabrication_Revenue }}</td>
+                                                            <td>{{ sales.Paint_Revenue }}</td>
+                                                            <td>{{ sales.Anodizing_Revenue }}</td>
+                                                            <td>{{ sales.Press }}</td>
+                                                            <td>{{ sales.Ship_To_State }}</td>
+                                                            <td>{{ sales.RSM_name }}</td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div><!--end .table-responsive -->
+                                    </div>   
+                                </div>       
+                            </div><!--end .col -->
+                        </div><!--end .row -->
+                        <!-- END DATATABLE 2 -->
+
+                    </div><!--end .section-body -->
+                </section>
+{% endblock %}

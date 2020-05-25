@@ -1,0 +1,294 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Add Orders {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Edit Product Pricing Details</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+
+										<form class="form" role="form" action="" method="post"> {% csrf_token %}
+											
+											<div class="row">
+												<div class="col-sm-2">
+													<p>Part Number:</p>
+												</div>
+												<div class="col-sm-3">
+
+												</div>
+												<div class="col-sm-4">
+
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group floating-label">
+														{{ price.price_book | add_class:'form-control' | attr:'rows:2' }}
+														<label for="regular2">Price book</label>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-2">
+													<p>Total Per Piece:</p>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group floating-label">
+														{{ price.total_per_piece_lbs | add_class:'form-control' | attr:'rows:2' }}
+														<label for="regular2">Total Per Piece in Lbs</label>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group floating-label">
+														{{ price.total_per_piece_sqft | add_class:'form-control' | attr:'rows:2' }}
+														<label for="regular2">Total Per Piece in Sqft</label>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group floating-label">
+														{{ price.total_per_piece_lnft | add_class:'form-control' | attr:'rows:2' }}
+														<label for="regular2">Total Per Piece in Lnft</label>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="form-group floating-label">
+														{{ price.qty_order | add_class:'form-control' | attr:'rows:2' }}
+														<label for="regular2">Order Quantity</label>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group floating-label">
+														{{ price.anodizing_qua | add_class:'form-control' | attr:'rows:2' }}
+														<label for="regular2">Anodizing Quantity</label>
+													</div>
+												</div>
+											</div>
+											<hr>
+											<div class="row">
+												<h2 style="text-align: center;">Product Pricing by Attributes</h2>
+											</div>
+											<div class="table-responsive">
+	                                            <table id="datatable3" class="table order-column hover">
+	                                                <thead>
+	                                                    <tr>
+	                                                        <th style="font-weight: bold;">Attribute Type</th>
+	                                                        <th style="font-weight: bold;">Attribute Value</th>
+	                                                        <th style="font-weight: bold;">Unit Price</th>
+	                                                        <th style="font-weight: bold;">Per</th>
+	                                                        <th style="font-weight: bold;">Price Per Piece</th>
+	                                                    </tr>
+	                                                </thead>
+	                                                <tbody>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Die</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.die_num | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Die Number</label>
+																</div>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.die_type | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Die Type</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.die_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Die Unit Price</label>
+																</div>
+															</td>
+	                                                    	<td style="font-weight: bold;">/Pound</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Billet Alloy</td>
+	                                                    	<td>6061T6</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.billet_alloy_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Billet Alloy Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Pound</td>
+	                                                    	<td>34.2409</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Fabrication</td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.fabrication_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Fabrication Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Piece</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Paint Lbs</td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.paint_lbs_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Paint Lbs Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Pound</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Paint Sq Ft</td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.paint_sqft_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Paint Sqft Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Sq Ft</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Anodizing</td>
+	                                                    	<td>AN03&emsp;&emsp;20MIN CLEAR</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.anodizing_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Anodizing Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Sq Ft</td>
+	                                                    	<td>11.6585</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Thermal Break</td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.thermal_break_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Thermal Break Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Ln Ft</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Exagrip</td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.exagrip_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Exagrip Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Ln Ft</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Masking</td>
+	                                                    	<td>N</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.masking_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Masking Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Ln Ft</td>
+	                                                    	<td></td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Packing</td>
+	                                                    	<td>Y</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.packaging_unit_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Packaging Unit Price</label>
+																</div>
+	                                                    	</td>
+	                                                    	<td style="font-weight: bold;">/Piece</td>
+	                                                    	<td>16.0006</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Pricing Time</td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.price_time | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Pricing time</label>
+																</div>
+	                                                    	</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Ingot Price</td>
+	                                                    	<td></td>
+	                                                    	<td></td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.ingot_price | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Ingot Price</label>
+																</div>
+	                                                    	</td>
+	                                                    </tr>
+	                                                    <tr>
+	                                                    	<td style="font-weight: bold;">Conversion Factor</td>
+	                                                    	<td></td>
+	                                                    	<td></td>
+	                                                    	<td></td>
+	                                                    	<td>
+	                                                    		<div class="form-group floating-label">
+																	{{ price.conversion_factor | add_class:'form-control' | attr:'rows:2' }}
+																	<label for="regular2">Conversion Factor</label>
+																</div>
+	                                                    	</td>
+	                                                    </tr>
+	                                                </tbody>
+	                                            </table>
+	                                            <div class="row">
+	                                            	<div class="col-sm-4">
+	                                            		<p style="font-weight: bold;">Total Pounds Ordered</p>
+	                                            	</div>
+	                                            	<div class="col-sm-2">
+	                                            		<p>579699</p>
+	                                            	</div>
+	                                            	<div class="col-sm-4">
+	                                            		<p style="font-weight: bold;">Total Price Per Piece</p>
+	                                            	</div>
+	                                            	<div class="col-sm-2">
+	                                            		<p>{{price.price_per_piece_die_billet}}</p>
+	                                            	</div>
+	                                            </div>
+	                                            <div class="row">
+													<div class="col-sm-12">
+														<div class="card-actionbar-row">
+															<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SAVE">
+														</div>
+													</div>
+												</div>		
+	                                        </div>
+										</form>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+						
+					</div><!--end .section-body -->
+				</section>
+
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Add Extrusion {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Add Extrusion Data</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+
+										<form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+											<div class="row">
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.date | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Date</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.press_code | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Press</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.shift_code | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Shift</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.maint_down_time | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Maintenance Time</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.other_down_time | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Other Time</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.headcount | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Head Count</label>
+														</div>
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.net_lbs_extruded | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Net Lbs Extruded</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.gross_lbs_extruded | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Gross Lbs Extruded</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.percent_attainment | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Attainment Percent</label>
+														</div>
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.safety_comments | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Safety</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.overrun_comments | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Overrun</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.out_of_tolerance_comments | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Out of Tolerance</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.surface_defects_comments | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Surface Defects</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.cooling_defects_comments | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Cooling Defects</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.handling_defects_comments | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Handling Defects</label>
+														</div>
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.attempted_die_runs | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Attempted Die runs</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.successful_die_runs | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Successful Die runs</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ extrusion.run_attainment_percent | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Run Successful Rate</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.plugged_run | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Plugged runs</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.dimensional_run | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Dimensional runs</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.finished_run | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Finished runs</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ extrusion.broken_run | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Broken runs</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+															<div class="col-sm-12">
+																<div class="card-actionbar-row">
+																	<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+																</div>
+															</div>
+												</div>
+											</div>
+										</form>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+						
+					</div><!--end .section-body -->
+				</section>
+
+{% endblock %}

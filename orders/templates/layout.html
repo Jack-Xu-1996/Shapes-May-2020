@@ -1,0 +1,580 @@
+﻿{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{% block title %} {% endblock %} | DjangoOMS</title>
+
+		<!-- BEGIN META -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="your,keywords">
+		<meta name="description" content="Short explanation about this website">
+		<!-- END META -->
+
+		<!-- BEGIN STYLESHEETS -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'css/materialadmin.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'css/material-design-iconic-font.min.css' %}" />
+        <link type="text/css" rel="stylesheet" href="{% static 'css/libs/DataTables/jquery.dataTables.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'css/libs/DataTables/extensions/dataTables.colVis.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'css/libs/DataTables/extensions/dataTables.tableTools.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'css/libs/select2/select2.css' %}" />
+        <link type="text/css" rel="stylesheet" href="{% static 'css/print.css' %}" />
+
+		<!-- END STYLESHEETS -->
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="../../assets/js/libs/utils/html5shiv.js?1403934957"></script>
+		<script type="text/javascript" src="../../assets/js/libs/utils/respond.min.js?1403934956"></script>
+		<![endif]-->
+	</head>
+	<body class="menubar-pin menubar-hoverable header-fixed "> <!--max sidemenu: menubar-pin -->
+
+		<!-- BEGIN HEADER-->
+		<header id="header" >
+			<div class="headerbar">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="headerbar-left">
+					<ul class="header-nav header-nav-options">
+						<li class="header-nav-brand" >
+							<div class="brand-holder">
+								<a href="{% url 'home' %}">
+									<span class="text-lg text-light text-danger">Shapes</span><span class="text-lg text-bold text-primary"> SOLUTIONS</span>
+								</a>
+							</div>
+						</li>
+						<li>
+							<a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+								<i class="fa fa-bars"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="headerbar-right">
+					<ul class="header-nav header-nav-profile">
+						<li class="dropdown">
+							<a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+								<span class="profile-info">
+									<h4 class="text-lg text-bold text-primary">DjangoOMS Application</h4>
+								</span>
+							</a>
+							<ul class="dropdown-menu animation-dock">
+								<li class="dropdown-header">My profile</li>
+								<li><a href="{% url 'change_password' %}">Change Password</a></li>
+								<li class="divider"></li>
+								<li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+							</ul><!--end .dropdown-menu -->
+						</li><!--end .dropdown -->
+					</ul><!--end .header-nav-profile -->
+				</div><!--end #header-navbar-collapse -->
+			</div>
+		</header>
+		<!-- END HEADER-->
+
+		<!-- BEGIN BASE-->
+		<div id="base">
+
+			<!-- BEGIN OFFCANVAS LEFT -->
+			<div class="offcanvas">
+			</div><!--end .offcanvas-->
+			<!-- END OFFCANVAS LEFT -->
+
+			<!-- BEGIN CONTENT-->
+			<div id="content">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div {% if message.tags %} class="alert {{ message.tags }} text-center"{% endif %}>
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+                {% block body %}
+
+                {% endblock %}
+
+			</div><!--end #content-->
+			<!-- END CONTENT -->
+
+			<!-- BEGIN MENUBAR-->
+			<div id="menubar" class="menubar-inverse ">
+				<div class="menubar-fixed-panel">
+					<div>
+						<a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+							<i class="fa fa-bars"></i>
+						</a>
+					</div>
+					<div class="expanded">
+						<a href="{% url 'home' %}">
+							<span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+						</a>
+					</div>
+				</div>
+				<div class="menubar-scroll-panel">
+
+					<!-- BEGIN MAIN MENU -->
+					<ul id="main-menu" class="gui-controls">
+
+						<!-- BEGIN DASHBOARD -->
+						<li>
+							<a href="{% url 'index' %}" class="active">
+								<div class="gui-icon"><i class="md md-home"></i></div>
+								<span class="title">Dashboard</span>
+							</a>
+						</li><!--end /menu-li -->
+						<!-- END DASHBOARD -->
+
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-search"></i></div>
+								<span class="title">Search</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Sales Lookup</span>
+									</a>
+									<ul>
+										<li><a href="{% url 'new' %}"><span class="title">Search Sales Order</span></a></li>
+										<li><a href="{% url 'home'%}"><span class="title">Search Work Order</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Finance Lookup</span>
+									</a>
+									<ul>
+										<li><a href="{% url 'indexdebt'%}"><span class="title">Search Customer Debt</span></a></li>
+									</ul>
+								</li>
+														
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+
+
+
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-bar-chart"></i></div>
+								<span class="title">Chart Analysis</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Sales Report Analysis</span>
+									</a>
+									<ul>
+										<!--<li><a href="{% url 'indexsalesreport'%}"><span class="title">Upload Sales Report</span></a></li>-->
+										<li><a href="{% url 'saleschart'%}"><span class="title">Sales Report Charts</span></a></li>
+										<li><a href="{% url 'bootstrap'%}"><span class="title">Sales Customer Analysis</span></a></li>
+										<li><a href="{% url 'sales3bootstrap'%}"><span class="title">Sales Manager Analysis</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Purchase Report Analysis</span>
+									</a>
+									<ul>
+										<!--<li><a href="{% url 'indexpurchasereport'%}"><span class="title">Upload Purchase Report</span></a></li>-->
+										<li><a href="{% url 'purchasechart'%}"><span class="title">Purchase Report Charts</span></a></li>
+										<li><a href="{% url 'purchase2bootstrap'%}"><span class="title">Purchase Vendor Analysis</span></a></li>
+										<li><a href="{% url 'purchase3bootstrap'%}"><span class="title">Purchase GL Analysis</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Department Cost Analysis</span>
+									</a>
+									<ul>
+										<!--<li><a href="{% url 'indexpurchasereport'%}"><span class="title">Upload General Ledger</span></a></li>-->
+										<li><a href="{% url 'departmentnavigation'%}"><span class="title">Department Cost Charts</span></a></li>
+										<!--<li><a href="{% url 'departmenttrendnavigation'%}"><span class="title">Department Cost Trend</span></a></li>-->
+										<li><a href="{% url 'foundry1bootstrap'%}"><span class="title">Foundry Metal</span></a></li>
+										<li><a href="{% url 'foundry2bootstrap'%}"><span class="title">Foundry Labor</span></a></li>
+										<li><a href="{% url 'foundry3bootstrap'%}"><span class="title">Foundry Overhead</span></a></li>
+										<li><a href="{% url 'extrusion2bootstrap'%}"><span class="title">Extrusion Labor</span></a></li>
+										<li><a href="{% url 'extrusion3bootstrap'%}"><span class="title">Extrusion Overhead</span></a></li>
+										<li><a href="{% url 'fabrication2bootstrap'%}"><span class="title">Fabrication Labor</span></a></li>
+										<li><a href="{% url 'fabrication3bootstrap'%}"><span class="title">Fabrication Overhead</span></a></li>
+										<li><a href="{% url 'anodizing2bootstrap'%}"><span class="title">Anodizing Labor</span></a></li>
+										<li><a href="{% url 'anodizing3bootstrap'%}"><span class="title">Anodizing Overhead</span></a></li>
+										<li><a href="{% url 'shipping2bootstrap'%}"><span class="title">Shipping Labor</span></a></li>
+										<li><a href="{% url 'shipping3bootstrap'%}"><span class="title">Shipping Overhead</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Cost Margin Analysis</span>
+									</a>
+									<ul>
+										
+									</ul>
+								</li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END CHART -->
+
+						<!-- BEGIN SALES ORDER -->
+						{% if response.admin_user or response.department == 'sales_order_entry' %}
+						
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-usd"></i></div>
+								<span class="title">Sales Order Entry</span>
+							</a>
+							<ul>
+								
+								<li><a href="{% url 'statuschecklist' %}"><span class="title">All Order Status</span></a></li>
+										
+							</ul>
+							<!--start submenu -->
+							<ul>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Sales Order Details</span>
+									</a>
+									<ul>
+										 {% if response.admin_user or response.position == 'manager' %}
+										<li><a href="{% url 'new' %}"><span class="title">Add Order</span></a></li>
+										{% endif %}
+										<li><a href="{% url 'home'%}"><span class="title">All Orders</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Billing/Shipping Address</span>
+									</a>
+									<ul>
+										{% if response.admin_user or response.position == 'manager' %}
+										<li><a href="{% url 'newbilladdress'%}"><span class="title">Add Billing Address</span></a></li>
+										<li><a href="{% url 'newshipaddress'%}"><span class="title">Add Shipping Address</span></a></li>
+										{% endif %}
+										<li><a href="{% url 'indexbilladdress'%}"><span class="title">All Billing Address</span></a></li>
+										<li><a href="{% url 'indexshipaddress'%}"><span class="title">All Shipping Address</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Customre Name</span>
+									</a>
+									<ul>
+										{% if response.admin_user or response.position == 'manager' %}
+										<li><a href="{% url 'newcustomername'%}"><span class="title">Add Customer</span></a></li>
+										{% endif %}
+										<li><a href="{% url 'indexcustomername'%}"><span class="title">All Customer</span></a></li>
+									</ul>
+								</li>
+														
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END SALES ORDER -->
+
+						<!-- BEGIN PURCHASE ORDER -->
+						{% endif %}
+
+						{% if response.admin_user or response.department == 'purchase_order_entry' %}
+
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-shopping-cart"></i></div>
+								<span class="title">Purchase Order Entry</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Purchase Order Details</span>
+									</a>
+									<ul>
+										{% if response.admin_user or response.position == 'manager' %}
+
+										<li><a href="{% url 'newpurchase'%}"><span class="title">Add Order</span></a></li>
+										{% endif %}
+										<li><a href="{% url 'indexpurchase'%}"><span class="title">All Orders</span></a></li>
+									</ul>
+								</li>
+								
+								<li class="gui-folder">
+									<a>
+										<span class="title">Part</span>
+									</a>
+									<ul>
+										{% if response.admin_user or response.position == 'manager' %}
+										<li><a href="{% url 'newpart'%}"><span class="title">Add Part</span></a></li>
+										{% endif %}
+										<li><a href="{% url 'indexpart'%}"><span class="title">All Part</span></a></li>
+									</ul>
+								</li>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Account</span>
+									</a>
+									<ul>{% if response.admin_user or response.position == 'manager' %}
+										<li><a href="{% url 'newaccount'%}"><span class="title">Add Account</span></a></li>
+										{% endif %}
+										<li><a href="{% url 'indexaccount'%}"><span class="title">All Account</span></a></li>
+									</ul>
+								</li>
+								
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END ORDER -->
+
+						<!-- BEGIN FOUNDRY
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-money"></i></div>
+								<span class="title">Foundry</span>
+							</a>
+							<ul>
+								<li><span class="title">Enter Revenue</span></a></li>
+								<li><span class="title">Revenue Summary</span></a></li>
+							</ul>
+						</li>
+						END FOUNDRY -->
+						{% endif %}
+
+						<!-- BEGIN INVENTORY -->
+
+						{% if response.admin_user or response.department == 'revenue_entry' %}
+
+						{% endif %}
+						{% if response.admin_user or response.department == 'foundry_data_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-codepen"></i></div>
+								<span class="title">Foundry</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'newfoundry' %}"><span class="title">Enter Cast Data</span></a></li>
+								<li><a href="{% url 'indexfoundry'%}"><span class="title">Foundry Summary</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END FOUNDRY -->
+
+						<!-- BEGIN EXTRUSION -->
+						{% endif %}
+						{% if response.admin_user or response.department == 'extrusion_data_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-stop"></i></div>
+								<span class="title">Extrusion</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'todolistextrusion'%}"><span class="title">To Do List</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END EXTRUSION -->						
+
+						<!-- BEGIN INVENTORY -->
+						{% endif %}
+
+						<!-- BEGIN FABRICATION -->
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-stop"></i></div>
+								<span class="title">Fabrication</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'todolistfabrication'%}"><span class="title">To Do List</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END FABRICATION -->
+
+						<!-- BEGIN ANODIZING -->
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-stop"></i></div>
+								<span class="title">Anodizing</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'todolistanodizing'%}"><span class="title">To Do List</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END ANODIZING -->
+
+						{% if response.admin_user or response.department == 'sales_order_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-truck"></i></div>
+								<span class="title">Shipping</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<!--<li><a href="{% url 'allshipping' %}"><span class="title">All Shipping</span></a></li>-->
+								<li><a href="{% url 'todolistshipping'%}"><span class="title">To Do List</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END INVENTORY -->
+
+						<!-- BEGIN CHART -->
+						{% endif %}
+
+						{% if response.admin_user or response.department == 'inventory_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-archive"></i></div>
+								<span class="title">Inventory Entry</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'newbillet' %}"><span class="title">Enter Billet</span></a></li>
+								<li><a href="{% url 'newlog' %}"><span class="title">Enter Log</span></a></li>
+								<li><a><span class="title">Enter Metal</span></a></li>
+								<li><a href="{% url 'indexbillet'%}"><span class="title">Billet Summary</span></a></li>
+								<li><a href="{% url 'indexlog'%}"><span class="title">Log Summary</span></a></li>
+								<li><a><span class="title">Metal Summary</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END INVENTORY -->
+
+						<!-- BEGIN CHART -->
+						{% endif %}
+
+
+						{% if response.admin_user or response.department == 'sales_order_entry' or 'purchase_order_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-credit-card"></i></div>
+								<span class="title">Finance</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'allreceiving' %}"><span class="title">Account Receivable</span></a></li>
+								<li><a href="{% url 'allpayment' %}"><span class="title">Account Payable</span></a></li>
+
+							</ul>
+							<ul>
+								<li class="gui-folder">
+									<a>
+										<span class="title">Captial injection</span>
+									</a>
+									<ul>
+										<li><a href="{% url 'addinjection' %}"><span class="title">Add capital injection</span></a></li>
+								
+										<li><a href="{% url 'allinjection'%}"><span class="title">All capital injection</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						{% endif %}
+
+						
+
+						{% if response.admin_user or response.department == 'inventory_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-archive"></i></div>
+								<span class="title">Maintenance</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'maintenance' %}"><span class="title">Add Maintenance</span></a></li>
+								<li><a href="{% url 'allmaintenance'%}"><span class="title">All Maintenance</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END INVENTORY -->
+
+						<!-- BEGIN CHART -->
+						{% endif %}
+
+
+
+						{% if response.admin_user or response.department == 'inventory_entry' %}
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-archive"></i></div>
+								<span class="title">Storage</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'allstorage' %}"><span class="title">All Storage</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END INVENTORY -->
+
+						<!-- BEGIN CHART -->
+						{% endif %}
+
+
+
+						<!-- BEGIN PROFILE -->
+						<li class="gui-folder">
+							<a>
+								<div class="gui-icon"><i class="fa fa-user"></i></div>
+								<span class="title">Profile</span>
+							</a>
+							<!--start submenu -->
+							<ul>
+								<li><a href="{% url 'change_password' %}" ><span class="title">Change Password</span></a></li>
+								<li><a href="{% url 'logout' %}" ><span class="title">Logout</span></a></li>
+							</ul><!--end /submenu -->
+						</li><!--end /menu-li -->
+						<!-- END PROFILE -->
+
+					</ul><!--end .main-menu -->
+					<!-- END MAIN MENU -->
+
+					<div class="menubar-foot-panel">
+						<small class="no-linebreak hidden-folded">
+							<span class="opacity-75">Copyright &copy; {% now "Y" %}</span> <strong>Shapes Solutions</strong>
+						</small>
+					</div>
+				</div><!--end .menubar-scroll-panel-->
+			</div><!--end #menubar-->
+			<!-- END MENUBAR -->
+
+		</div><!--end #base-->
+		<!-- END BASE -->
+
+		<!-- BEGIN JAVASCRIPT -->
+		<script src="{% static 'js/libs/jquery/jquery-1.11.2.min.js' %}"></script>
+		<script src="{% static 'js/libs/jquery/jquery-migrate-1.2.1.min.js' %}"></script>
+		<script src="{% static 'js/libs/bootstrap/bootstrap.min.js' %}"></script>
+
+		<script src="{% static 'js/libs/nanoscroller/jquery.nanoscroller.min.js' %}"></script>
+
+        <!-- DATATABLE -->
+		<script src="{% static 'js/libs/DataTables/jquery.dataTables.min.js' %}"></script>
+		<script src="{% static 'js/libs/DataTables/extensions/ColVis/js/dataTables.colVis.min.js' %}"></script>
+		<script src="{% static 'js/libs/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js' %}"></script>
+
+		<script src="{% static 'js/core/App.js' %}"></script>
+		<script src="{% static 'js/core/AppNavigation.js' %}"></script>
+		<script src="{% static 'js/core/AppOffcanvas.js' %}"></script>
+		<script src="{% static 'js/core/AppCard.js' %}"></script>
+		<script src="{% static 'js/core/AppForm.js' %}"></script>
+		<script src="{% static 'js/core/AppVendor.js' %}"></script>
+		<script src="{% static 'js/core/Demo.js' %}"></script>
+        <script src="{% static 'js/core/DemoTableDynamic.js' %}"></script>
+        <script src="{% static 'js/libs/select2/select2.min.js' %}"></script>
+		<!-- END JAVASCRIPT -->
+
+        <script>
+            // =========================================================================
+            // SELECT2
+            // =========================================================================
+
+            $(document).ready(function() {
+              $("#customer_id").select2();
+              $("#billAddress_id").select2();
+              $("#shipAddress_id").select2();
+
+            });
+        </script>
+
+	</body>
+</html>

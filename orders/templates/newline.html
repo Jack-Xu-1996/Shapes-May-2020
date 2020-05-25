@@ -1,0 +1,191 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Add Lines {% endblock %}
+
+{% block body %}
+
+<section>
+	<div class="section-body">
+		<div class="row">
+
+			<!-- BEGIN  - FORM -->
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-head style-primary">
+						<header>Lines Details</header>
+						<div class="tools">
+							<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+							<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+						</div>
+					</div>
+					<div class="card-body">
+						<form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+							<div class="row">
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.order_number| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2"> Sales Order</label>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.cat| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">CAT (how many orders)</label>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.ship_days| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Shipping Days</label>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.order_total| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Order Total</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.customer_number| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Customer Number</label>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group floating-label">
+											{{ line.customer_name| add_class:'form-control' | attr:'rows:2'}}
+											<label for="textarea2">Customer Name</label>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.travel_days| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Travel Days</label>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.estimated_costs| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Estimated Cost</label>
+										</div>
+									</div>
+								</div>
+								<hr>															
+
+								<div class="row">
+									<div class="col-sm-1">
+										<div class="form-group floating-label">
+											{{ line.line_number| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Line</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.part_number| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Part Number</label>
+										</div>
+										<div class="form-group floating-label">
+											{{ line.description| add_class:'form-control' | attr:'rows:2'}}
+											<label for="textarea2">Part Description</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.whse| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Warehouse</label>
+										</div>
+										<div class="form-group floating-label">
+											{{ line.alloc| add_class:'form-control' | attr:'rows:2'}}
+											<label for="textarea2">Allocation</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.qty_order| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Quantity Ordered</label>
+										</div>
+										<div class="form-group floating-label">
+											{{ line.qty_avail| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Quantity Available</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group">
+											{{ line.required_date | add_class:'form-control' | attr:'type:date'}}
+											<label for="textarea2">Required Date</label>
+										</div>
+										<div class="form-group">
+											{{ line.promised_date | add_class:'form-control' | attr:'type:date'}}
+											<label for="textarea2">Promised Date</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.unit_price| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Unit Price</label>
+										</div>
+										<a href="{% url 'newprice' %}" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-attach-money"></i> </a>
+									</div>
+									<div class="col-sm-1">
+										<div class="form-group floating-label">
+											{{ line.stat| add_class:'form-control'}}
+											<label for="select2">Status</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.ship_tolerance_min| add_class:'form-control'}}
+											<label for="regular2">Minimum Shipping Tolerance</label>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="form-group floating-label">
+											{{ line.ship_tolerance_max| add_class:'form-control'}}
+											<label for="regular2">Maximum Shipping Tolerance</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.uos| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">UOS</label>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="form-group floating-label">
+											{{ line.price_book| add_class:'form-control' | attr:'rows:2'}}
+											<label for="regular2">Price Book (F4)</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card-actionbar-row">
+											<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+										</div>
+									</div>
+								</div>							
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div><!--end .col -->
+			<!-- END FORM - TIME ON SITE -->
+
+		</div><!--end .row -->
+
+	</div><!--end .section-body -->
+</section>
+
+{% endblock %}

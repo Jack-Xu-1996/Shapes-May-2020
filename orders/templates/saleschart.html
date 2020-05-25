@@ -1,0 +1,385 @@
+{% extends 'layout.html' %}
+
+{% block title %} All Sales Orders {% endblock %}
+
+{% block body %}
+            <!-- jQuery CDN -->
+                <script
+                src="https://code.jquery.com/jquery-1.12.4.min.js"
+                integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+                crossorigin="anonymous"></script>
+                 <!-- highcharts CDN -->
+                <script src="https://code.highcharts.com/highcharts.src.js"></script>
+                <script src="https://code.highcharts.com/highcharts-more.js"></script>
+                <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                <script src="https://code.highcharts.com/modules/export-data.js"></script>  
+                <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+                <script src="https://code.highcharts.com/modules/treemap.js"></script>
+
+                {% load chartit %}
+                {{ chart_list|load_charts:"cht, cht2, cht3, cht4, cht5, cht6, cht7, cht8, cht9, cht10, cht11, cht12, cht13, cht14, cht15, cht16, cht17, cht18, cht19, cht20, cht21" }}
+                <style>
+                    .card1 {
+                      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+                      transition: 0.3s;
+                    }
+                </style>
+                <style>
+                  .slider {
+                  width: 100%;
+                  text-align: center;
+                  overflow: hidden;
+                  }
+                  .slides {
+                  display: flex;
+                  overflow-x: auto;
+                  scroll-behavior: smooth;
+                  -webkit-overflow-scrolling: touch;
+                  }
+                  .slides::-webkit-scrollbar {
+                  width: 10px;
+                  height: 10px;
+                  }
+                  .slides::-webkit-scrollbar-thumb {
+                  background: #666;
+                  border-radius: 10px;
+                  }
+                  .slides::-webkit-scrollbar-track {
+                  background: transparent;
+                  }
+                  .slides > div {
+                  flex-shrink: 0;
+                  width: 100%;
+                  height: 400px;
+                  margin-right: 10px;
+                  border-radius: 10px;
+                  background: #eee;
+                  transform-origin: center center;
+                  transform: scale(1);
+                  transition: transform 0.5s;
+                  position: relative;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 10px;
+                  }
+                  .slider > a {
+                  display: inline-flex;
+                  font-family: 'Comic Sans MS';
+                  width: 6rem;
+                  height: 1.5rem;
+                  background: gainsboro;
+                  text-decoration: none;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 0%;
+                  margin: 0 0 0.5rem 0;
+                  position: relative;
+                  }
+                  .slider > a:active {
+                  top: 1px;
+                  color: #1c87c9;
+                  }
+                  .slider > a:focus {
+                  background: #eee;
+                  }
+                  /* Don't need button navigation */
+
+                </style>
+                <section>
+                    <div class="section-body">
+                        <!-- BEGIN DATATABLE 2 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>Past Three Months Sales Orders Data</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Recent Monthly</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="slider">
+                                                              <a href="#slide-10">Column</a>
+                                                              <a href="#slide-11">Line</a>
+                                                              <a href="#slide-12">Pie</a>
+                                                                <div class="slides">
+                                                                    <div id="slide-10">
+                                                                        <div id='cht10' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-11">
+                                                                        <div id='cht11' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-12">
+                                                                        <div id='cht12' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Recent Customer</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="slider">
+                                                              <a href="#slide-13">Column</a>
+                                                              <a href="#slide-14">Line</a>
+                                                              <a href="#slide-15">Pie</a>
+                                                              <a href="{% url 'bootstrap' %}" class="btn btn-primary btn-sm active">Detail</a>
+                                                                <div class="slides">
+                                                                    <div id="slide-13">
+                                                                        <div id='cht13' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-14">
+                                                                        <div id='cht14' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-15">
+                                                                        <div id='cht15' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Recent Manager</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="slider">
+                                                              <a href="#slide-16">Column</a>
+                                                              <a href="#slide-17">Line</a>
+                                                              <a href="#slide-18">Pie</a>
+                                                              <a href="{% url 'sales3bootstrap' %}" class="btn btn-primary btn-sm active">Detail</a>
+                                                                <div class="slides">
+                                                                    <div id="slide-16">
+                                                                        <div id='cht16' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-17">
+                                                                        <div id='cht17' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-18">
+                                                                        <div id='cht18' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                               
+                                    </div>   
+                                </div>
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>All Times Sales Orders Data</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Monthly Sales</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="slider">
+                                                              <a href="#slide-1">Column</a>
+                                                              <a href="#slide-2">Line</a>
+                                                              <a href="#slide-3">Pie</a>
+                                                                <div class="slides">
+                                                                    <div id="slide-1">
+                                                                        <div id='cht' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-2">
+                                                                        <div id='cht2' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-3">
+                                                                        <div id='cht3' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Customer Sales</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="slider">
+                                                              <a href="#slide-4">Column</a>
+                                                              <a href="#slide-5">Line</a>
+                                                              <a href="#slide-6">Pie</a>
+                                                              <a href="{% url 'bootstrap' %}" class="btn btn-primary btn-sm active">Detail</a>
+                                                                <div class="slides">
+                                                                    <div id="slide-4">
+                                                                        <div id='cht4' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-5">
+                                                                        <div id='cht5' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-6">
+                                                                        <div id='cht6' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Manager Sales</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="slider">
+                                                              <a href="#slide-7">Column</a>
+                                                              <a href="#slide-8">Line</a>
+                                                              <a href="#slide-9">Pie</a>
+                                                              <a href="{% url 'sales3bootstrap' %}" class="btn btn-primary btn-sm active">Detail</a>
+                                                                <div class="slides">
+                                                                    <div id="slide-7">
+                                                                        <div id='cht7' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-8">
+                                                                        <div id='cht8' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                    <div id="slide-9">
+                                                                        <div id='cht9' style="width: 100%; height: 400px; margin: 0 auto">  </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                               
+                                    </div>   
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>Compare Sales Orders Data</header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Compare Monthly</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                          <div id='cht19' style="width: 100%; height: 400px; margin: 0 auto">  </div>                                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Compare Customer</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                          <div id='cht20' style="width: 100%; height: 400px; margin: 0 auto">  </div>                                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4" >
+                                                <div class="card1">
+                                                    <div class="card">
+                                                        <div class="card-head style-primary">
+                                                            <header style="font-size: 17px;">Compare Manager</header>
+                                                            <div class="tools">
+                                                                <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                                                <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                          <div id='cht21' style="width: 100%; height: 400px; margin: 0 auto">  </div>                                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                                               
+                                    </div>   
+                                </div>
+
+                            </div><!--end .col -->
+                        </div><!--end .row -->
+                        <!-- END DATATABLE 2 -->
+
+                    </div><!--end .section-body -->
+                </section>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block title %} All Payment {% endblock %}
+
+{% block body %}
+
+                <section>
+                    <div class="section-body">
+                        <!-- BEGIN DATATABLE 2 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-head style-primary">
+                                        <header>All Account Payable&emsp;&emsp;&emsp;
+                                            
+                                        </header>
+                                        <div class="tools">
+                                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <a href="{% url 'newpurchase' %}" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-add"></i> </a>
+                                            <a onclick="openWin()" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-file-upload"></i> </a>
+                                            <a onclick="location.reload();" class="btn ink-reaction btn-floating-action btn-primary active"><i class="md md-refresh"></i> </a>
+                                        </div>
+                                        <br>
+                                        <script>
+                                            var myWindow;
+
+                                            function openWin() {
+                                              myWindow = window.open("{% url 'uploadpurchase'%}", "", "width=400, height=180");
+                                            }
+                                        </script>
+                                        <div class="table-responsive">
+                                            <table id="datatable2" class="table order-column hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Req Number</th>
+                                
+                                                        <th>Date Required</th>
+                                                        <th>Total Amount</th>
+                                                        <th>Payment Status</th>
+                                                        <th>Amount Paid</th>
+                                                        <th width="150px">Buttons</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% load humanize %}
+                                                    {% for purchase in purchase %}
+                                                        <tr class="gradeX">
+                                                            <td>{{ purchase.id }}</td>
+                                                            <td>{{ purchase.requisition_number }}</td>
+                                                    
+                                                            <td>{{ purchase.required_date }}</td>
+                                                            <td>{{ purchase.total }}</td>
+                                                            <td>{{ purchase.payment_status }}</td>
+                                                            <td>$ {{ purchase.amount_paid | floatformat:2 | intcomma }}</td>
+                                                            <td>
+                                                                {% if response.admin_user or response.position == 'manager' %}
+                                                                <a href="{% url 'editpayment' purchase.id %}" class="btn ink-reaction btn-floating-action btn-warning"><i class="md md-edit"></i> </a>
+                                                                {% endif %}
+                                                             
+                                                                <a href="{% url 'showpurchase' purchase.id %}" class="btn ink-reaction btn-floating-action btn-primary"><i class="md md-print"></i> </a>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div><!--end .table-responsive -->
+                                    </div>   
+                                </div>       
+                            </div><!--end .col -->
+                        </div><!--end .row -->
+                        <!-- END DATATABLE 2 -->
+
+                    </div><!--end .section-body -->
+                </section>
+{% endblock %}
