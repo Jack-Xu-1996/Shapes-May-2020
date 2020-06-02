@@ -127,3 +127,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 #UPLOAD_ROOT = os.path.join(BASE_DIR,'upload')
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
