@@ -131,12 +131,12 @@
 						</li><!--end /menu-li -->
 						<!-- END DASHBOARD -->
 
-						<li class="gui-folder">
+
+						<!--<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="fa fa-search"></i></div>
 								<span class="title">Search</span>
 							</a>
-							<!--start submenu -->
 							<ul>
 								<li class="gui-folder">
 									<a>
@@ -156,8 +156,8 @@
 									</ul>
 								</li>
 														
-							</ul><!--end /submenu -->
-						</li><!--end /menu-li -->
+							</ul>
+						</li>-->
 
 
 
@@ -222,7 +222,7 @@
 						<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="fa fa-usd"></i></div>
-								<span class="title">Sales Order Entry</span>
+								<span class="title">Sales Order</span>
 							</a>
 							<ul>
 								
@@ -279,7 +279,7 @@
 						<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="fa fa-shopping-cart"></i></div>
-								<span class="title">Purchase Order Entry</span>
+								<span class="title">Purchase Order</span>
 							</a>
 							<!--start submenu -->
 							<ul>
@@ -342,62 +342,25 @@
 
 						{% endif %}
 						{% if response.admin_user or response.department == 'foundry_data_entry' %}
-						<li class="gui-folder">
-							<a>
-								<div class="gui-icon"><i class="fa fa-codepen"></i></div>
-								<span class="title">Foundry</span>
-							</a>
-							<!--start submenu -->
-							<ul>
-								<li><a href="{% url 'newfoundry' %}"><span class="title">Enter Cast Data</span></a></li>
-								<li><a href="{% url 'indexfoundry'%}"><span class="title">Foundry Summary</span></a></li>
-							</ul><!--end /submenu -->
-						</li><!--end /menu-li -->
-						<!-- END FOUNDRY -->
-
-						<!-- BEGIN EXTRUSION -->
+						
 						{% endif %}
 						{% if response.admin_user or response.department == 'extrusion_data_entry' %}
+
 						<li class="gui-folder">
 							<a>
-								<div class="gui-icon"><i class="fa fa-stop"></i></div>
-								<span class="title">Extrusion</span>
+								<div class="gui-icon"><i class="fa fa-gavel"></i></div>
+								<span class="title">Manufacturing</span>
 							</a>
-							<!--start submenu -->
 							<ul>
-								<li><a href="{% url 'todolistextrusion'%}"><span class="title">To Do List</span></a></li>
-							</ul><!--end /submenu -->
-						</li><!--end /menu-li -->
-						<!-- END EXTRUSION -->						
+								<li><a href="{% url 'todolistextrusion'%}"><span class="title">Extrusion</span></a></li>
+								<li><a href="{% url 'todolistfabrication'%}"><span class="title">Fabrication</span></a></li>
+								<li><a href="{% url 'todolistanodizing'%}"><span class="title">Anodizing</span></a></li>
+							</ul>
+						</li>
 
-						<!-- BEGIN INVENTORY -->
 						{% endif %}
 
-						<!-- BEGIN FABRICATION -->
-						<li class="gui-folder">
-							<a>
-								<div class="gui-icon"><i class="fa fa-stop"></i></div>
-								<span class="title">Fabrication</span>
-							</a>
-							<!--start submenu -->
-							<ul>
-								<li><a href="{% url 'todolistfabrication'%}"><span class="title">To Do List</span></a></li>
-							</ul><!--end /submenu -->
-						</li><!--end /menu-li -->
-						<!-- END FABRICATION -->
-
-						<!-- BEGIN ANODIZING -->
-						<li class="gui-folder">
-							<a>
-								<div class="gui-icon"><i class="fa fa-stop"></i></div>
-								<span class="title">Anodizing</span>
-							</a>
-							<!--start submenu -->
-							<ul>
-								<li><a href="{% url 'todolistanodizing'%}"><span class="title">To Do List</span></a></li>
-							</ul><!--end /submenu -->
-						</li><!--end /menu-li -->
-						<!-- END ANODIZING -->
+						
 
 						{% if response.admin_user or response.department == 'sales_order_entry' %}
 						<li class="gui-folder">
@@ -419,17 +382,15 @@
 						{% if response.admin_user or response.department == 'inventory_entry' %}
 						<li class="gui-folder">
 							<a>
-								<div class="gui-icon"><i class="fa fa-archive"></i></div>
-								<span class="title">Inventory Entry</span>
+								<div class="gui-icon"><i class="fa fa-cubes"></i></div>
+								<span class="title">Billets/Logs Inventory</span>
 							</a>
 							<!--start submenu -->
 							<ul>
 								<li><a href="{% url 'newbillet' %}"><span class="title">Enter Billet</span></a></li>
 								<li><a href="{% url 'newlog' %}"><span class="title">Enter Log</span></a></li>
-								<li><a><span class="title">Enter Metal</span></a></li>
 								<li><a href="{% url 'indexbillet'%}"><span class="title">Billet Summary</span></a></li>
 								<li><a href="{% url 'indexlog'%}"><span class="title">Log Summary</span></a></li>
-								<li><a><span class="title">Metal Summary</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END INVENTORY -->
@@ -470,7 +431,7 @@
 						{% if response.admin_user or response.department == 'inventory_entry' %}
 						<li class="gui-folder">
 							<a>
-								<div class="gui-icon"><i class="fa fa-archive"></i></div>
+								<div class="gui-icon"><i class="fa fa-gear"></i></div>
 								<span class="title">Maintenance</span>
 							</a>
 							<!--start submenu -->
