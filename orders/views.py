@@ -2368,7 +2368,8 @@ def fabrication_chart(request):
             '5650311':'Saw Blades (FABRICATION)', '5650352':'Lift Truck Repairs (FABRICATION)', '5650410':'Equipment Rental (FABRICATION)', '5650106':'Welding - Delair Services (FABRICATION)',
             '5650220':'Furniture & Fixtures Expense (FABRICATION)', '5650308':'Tooling Maintenance (FABRICATION)', '5650357':'Motor Repair (FABRICATION)',
             '5650368':'Equipment Repair (FABRICATION)', '5650112':'Labor Transfer In/(Out) (FABRICATION)', '5650321':'Electrical Expense (FABRICATION)',
-            '5650210':'Office Supplies (FABRICATION)', '5650320':'Hardware And Mill (FABRICATION)', '5650323':'Fence Assembly Misc Parts (FABRICATION)', '5650211':'Salesman Commissions (FABRICATION)'
+            '5650210':'Office Supplies (FABRICATION)', '5650320':'Hardware And Mill (FABRICATION)', '5650323':'Fence Assembly Misc Parts (FABRICATION)', '5650211':'Salesman Commissions (FABRICATION)',
+            '5650702':'Purchase Fabrication'
             }
         return names[gl_num]
 
@@ -5529,7 +5530,7 @@ def purchase_chart(request):
                 '5400356': 'Pump Repair (EXTRUSION)', '5400357': 'Motor Repair (EXTRUSION)', '5400358': 'Billet Heater Repairs (EXTRUSION)', '5400359': 'Handling Equipment Repairs (EXTRUSION)',
                 '5400364': 'Outside Mechanical (EXTRUSION)', '5400365': 'Outside Electrical (EXTRUSION)', '5400410': 'Equipment Rental (EXTRUSION)', '5400762': 'STRAPPING,PACKAGING,EXTRUSION (EXTRUSION)',
                 '5650309': 'Tooling Expense (FABRICATION)', '5650310': 'Shop Supplies (FABRICATION)', '5650311': 'Saw Blades (FABRICATION)', '5650320': 'Hardware And Mill (FABRICATION)', '5650350': 'Maintenance & Repairs (FABRICATION)',
-                '5650352': 'Lift Truck Repairs (FABRICATION)', '5650702': '5650702', '569205': '569205', '569405': '569405', '569501': '569501', '5700350': 'Maintenance & Repair (PAINTLINE)', '5700701': '5700701', '570073': '570073',
+                '5650352': 'Lift Truck Repairs (FABRICATION)', '5650702': 'Purchase Fabrication', '569205': '569205', '569405': '569405', '569501': '569501', '5700350': 'Maintenance & Repair (PAINTLINE)', '5700701': '5700701', '570073': '570073',
                 '5750310': 'Shop Supplies (ANODIZING)', '5750350': 'Maintenance & Repair (ANODIZING)', '5750352': 'Racking Expense (ANODIZING)', '5750364': 'Outside Mechanical (ANODIZING)', '5750410': 'Equipment Rental (ANODIZING)',
                 '5750701': 'Purchase Chemicals (ANODIZING)', '5750705': 'Outside Anodizing (ANODIZING)', '5800210': 'Office Supplies (SHIPPING)',
                 '5800310': 'Shop Supplies (SHIPPING)', '5800321': 'Electrical Expense (SHIPPING)', '5800350': 'Maintenance & Repairs (SHIPPING)',
