@@ -298,6 +298,7 @@ def performance(request):
         elif page =='RSM_name':
             company_name = i.RSM_name
         dollars = i.Calc_Price
+        print(dollars)
         dollars = round(float(dollars), 2)
         s3="$%s%s" % (intcomma(int(dollars)), ("%0.2f" % dollars)[-3:])
         Calc_Price = s3
